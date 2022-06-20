@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Customers</title>
+<link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+</head>
+<body>
+<div class="container my-2" align="center">
+ 
+<h3>Customers List</h3>
+    <table style="width:80%" border="1"
+           class = "table table-striped table-responsive-md">
+    <thead>
+  <tr>
+    <th>Name</th>
+    <th>Surname</th>
+    <th>Balance</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="customer:${customersList}">
+        <td th:text="${customer.name}"></td>
+        <td th:text="${customer.surname}"></td>
+        <td th:text="${customer.balance}"></td>
+        <td> <a th:href="@{/addAccount/{id}(id=${customer.id})}"
+                class="btn btn-primary">Add Account</a>
+<!--                 <a th:href="@{/x/{id}(id=${customer.id})}" -->
+    	</td>
+  </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</html>
